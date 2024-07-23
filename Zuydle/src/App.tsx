@@ -1,9 +1,7 @@
-import { useState } from 'react'
 import githubLogo from '/githubLogo.svg'
 import './App.css'
 
 function App() {
-  const [gold, setGold] = useState(0)
 
   return (
     <>
@@ -12,11 +10,7 @@ function App() {
           <img src={githubLogo} className="logo" alt="Github logo" />
         </a>
       </div>
-      <div className="card">
-        <button onClick={() => setGold((gold) => gold + 1)}>
-          Gold {gold}
-        </button>
-      </div>
+      <Gold></Gold>
     </>
   )
 }
