@@ -2,7 +2,7 @@ import React from 'react';
 
 interface PickaxeUpgradeProps {
   multiplier: number;
-  upgradeCount: number; // Voeg upgradeCount toe aan de props
+  upgradeCount: number;
   onUpgradeClick: () => void;
 }
 

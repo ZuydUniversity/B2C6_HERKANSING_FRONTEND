@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import Gold from './Gold';
-import PickaxeUpgrade from './PickaxeUpgrade';
-import githubLogo from '/githubLogo.svg'
-import './App.css';
+import { useState } from "react";
+import Gold from "./Gold";
+import PickaxeUpgrade from "./PickaxeUpgrade";
+import githubLogo from "/githubLogo.svg";
+import "./App.css";
 
 function App() {
   const [gold, setGold] = useState(0);
@@ -24,7 +24,7 @@ function App() {
       setMultiplier((multiplier) => multiplier * 2);
       setUpgradeCount((count) => count + 1);
     } else {
-      alert('Niet genoeg goud voor upgrade!');
+      alert("Niet genoeg goud voor upgrade!");
     }
   };
 
