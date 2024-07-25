@@ -11,7 +11,7 @@ return(
           Gold {gold}
         </button>
       </div>
-      </>
+    </>
 )
 }
 

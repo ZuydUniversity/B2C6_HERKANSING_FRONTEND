@@ -1,5 +1,7 @@
 import githubLogo from '/githubLogo.svg'
 import './App.css'
+import './Gold.tsx'
+import Gold from './Gold.tsx'
 
 function App() {
 
