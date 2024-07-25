@@ -1,18 +1,16 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-function Gold(){
+function Gold({strength}: {strength?: number}) {
+  const [gold, setGold] = useState(0);
+  strength = strength ?? 1
 
-const [gold, setGold] = useState(0)
-
-return(
+  return (
     <>
-    <div className="card">
-        <button onClick={() => setGold((gold) => gold + 1)}>
-          Gold {gold}
-        </button>
+      <div className="card">
+        <button onClick={() => setGold((gold) => gold + strength!)}>Gold {gold}</button>
       </div>
     </>
-)
+  );
 }
 
-export default Gold
+export default Gold;
