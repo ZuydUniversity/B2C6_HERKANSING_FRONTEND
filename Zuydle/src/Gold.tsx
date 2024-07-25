@@ -1,18 +1,18 @@
-import { useState } from 'react'
+import React from 'react';
 
-function Gold(){
-
-const [gold, setGold] = useState(0)
-
-return(
-    <>
-    <div className="card">
-        <button onClick={() => setGold((gold) => gold + 1)}>
-          Gold {gold}
-        </button>
-      </div>
-      </>
-)
+interface GoldProps {
+  gold: number;
+  onGoldClick: () => void;
 }
 
-export default Gold
+function Gold({ gold, onGoldClick }: GoldProps) {
+  return (
+    <div className="card">
+      <button onClick={onGoldClick}>
+        Gold {gold}
+      </button>
+    </div>
+  );
+}
+
+export default Gold;
