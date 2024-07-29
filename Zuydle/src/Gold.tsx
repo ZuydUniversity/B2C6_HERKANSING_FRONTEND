@@ -1,13 +1,11 @@
-import { useState } from "react";
+import useGold from '../src/useGold';
 
-function Gold({strength}: {strength?: number}) {
-  const [gold, setGold] = useState(0);
-  strength = strength ?? 1
+function Gold() {
 
   return (
     <>
       <div className="card">
-        <button onClick={() => setGold((gold) => gold + strength!)}>Gold {gold}</button>
+        <button onClick={() => useGold}>Gold {gold}</button>
       </div>
     </>
   );
