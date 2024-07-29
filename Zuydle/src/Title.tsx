@@ -8,6 +8,7 @@ interface TitleProperties {
 
 const Title: React.FC<TitleProperties> = ({ text, size = 'medium' }) => {
   let fontSize: string;
+  let className = styles.title;
 
   switch (size) {
     case 'small':
@@ -17,14 +18,15 @@ const Title: React.FC<TitleProperties> = ({ text, size = 'medium' }) => {
       fontSize = '2rem';
       break;
     case 'large':
-      fontSize = '2.5rem';
+      fontSize = '4rem';
+      className = `${styles.title} ${styles.largeTitle}`;
       break;
     default:
       fontSize = '2rem';
   }
 
   return (
-    <h1 className={styles.title} style={{ fontSize }}>
+    <h1 className={className} style={{ fontSize }}>
       {text}
     </h1>
   );
