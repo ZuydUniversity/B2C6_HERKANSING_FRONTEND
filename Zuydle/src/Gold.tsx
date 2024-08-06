@@ -1,12 +1,12 @@
-import useGold from "../src/useGold";
+import useGold from "./hooks/useGold";
 
 function Gold() {
-  const {gold} = useGold({strength: 2})
-  
+  const {gold, raiseGold} = useGold({savedGold: 1})
+
   return (
     <>
       <div className="card">
-        <button onClick={() => useGold}>Gold {gold}</button>
+        <button onClick={() => raiseGold(5)}>Gold {gold}</button>
       </div>
     </>
   );
