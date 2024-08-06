@@ -1,7 +1,8 @@
-import useGold from '../src/useGold';
+import useGold from "../src/useGold";
 
 function Gold() {
-
+  const {gold} = useGold({strength: 2})
+  
   return (
     <>
       <div className="card">

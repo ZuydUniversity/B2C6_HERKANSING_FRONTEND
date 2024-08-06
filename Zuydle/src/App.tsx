@@ -14,7 +14,7 @@ function App() {
           <img src={githubLogo} className="logo" alt="Github logo" />
         </a>
       </div>
-      <Gold strength={2}></Gold>
+      <Gold></Gold>
     </>
   );
 }
