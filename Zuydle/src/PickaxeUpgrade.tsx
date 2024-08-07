@@ -1,41 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
+import usePickaxeUpgrade from './hooks/usePickaxeUpgrade';
 
-function PickaxeUpgrade() {
-  const [gold, setGold] = useState(0);
-  const [multiplier, setMultiplier] = useState(1);
-  const [upgradeCount, setUpgradeCount] = useState(0);
+interface PickaxeUpgradeProps {
+  gold: number;
+  setGold: (gold: number) => void;
+}
 
-  const handleGoldClick = () => {
-    setGold((gold) => gold + multiplier);
-  };
+function PickaxeUpgrade({ gold, setGold }: PickaxeUpgradeProps) {
+  const { multiplier, upgradeCount, upgradePickaxe, calculateUpgradeCost } = usePickaxeUpgrade();
 
-  const calculateUpgradeCost = (count: number) => {
-    return Math.pow(count + 1, 2) * 10; // Kosten = (aantal upgrades + 1)² * 10
-  };
-
-  const handleUpgradeClick = () => {
-    const cost = calculateUpgradeCost(upgradeCount);
-    if (gold >= cost) {
-      setGold((gold) => gold - cost);
-      setMultiplier((multiplier) => multiplier * 2);
-      setUpgradeCount((count) => count + 1);
-    } else {
-      alert('Niet genoeg goud voor upgrade!');
-    }
-  };
+  const cost = calculateUpgradeCost();
 
   return (
-    <div>
-      <div className="card">
-        <button onClick={handleGoldClick}>
-          Gold {gold}
-        </button>
-      </div>
-      <div className="card">
-        <button onClick={handleUpgradeClick}>
-          Upgrade Pickaxe (Cost: {calculateUpgradeCost(upgradeCount)} Gold) - Current Multiplier: {multiplier}
-        </button>
-      </div>
+    <div className="card">
+      <button onClick={() => upgradePickaxe(gold, setGold)}>
+        Upgrade Pickaxe (Cost: {cost} Gold) - Current Multiplier: {multiplier} - Upgrades: {upgradeCount}
+      </button>
     </div>
   );
 }
