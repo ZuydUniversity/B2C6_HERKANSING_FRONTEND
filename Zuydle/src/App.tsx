@@ -1,11 +1,11 @@
 // src/App.tsx
 import './App.css';
-import LoginButton from './LoginButton'; // Importeer de LoginButton component
+import LoginButton from './components/loginbutton'
 
 function App() {
   return (
     <div className="app-container">
-      <LoginButton /> {/* Voeg de LoginButton toe */}
+      <LoginButton />
     </div>
   );
 }
