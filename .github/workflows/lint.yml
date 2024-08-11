@@ -5,10 +5,12 @@ on:
     branches:
       - main
       - develop
+      - setup/eslint
   pull_request:
     branches:
       - main
       - develop
+      - setup/eslint
 
 jobs:
   lint:
