@@ -6,31 +6,31 @@ interface PasswordInputProps {
     onChange: (password: string) => void;
 }
 
-const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder, onChange }) => {
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
-    const [showConfirmPasswordField, setShowConfirmPasswordField] = useState(false);
-    const [passwordsMatch, setPasswordsMatch] = useState(true);
+const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder = '', onChange }) => {
+    const [password, setPassword] = useState<string>('');
+    const [confirmPassword, setConfirmPassword] = useState<string>('');
+    const [showPassword, setShowPassword] = useState<boolean>(false);
+    const [showConfirmPasswordField, setShowConfirmPasswordField] = useState<boolean>(false);
+    const [passwordsMatch, setPasswordsMatch] = useState<boolean>(true);
 
-    const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const newPassword = e.target.value;
         setPassword(newPassword);
         onChange(newPassword);
         setPasswordsMatch(newPassword === confirmPassword);
     };
 
-    const handleConfirmPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleConfirmPasswordChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const newConfirmPassword = e.target.value;
         setConfirmPassword(newConfirmPassword);
         setPasswordsMatch(password === newConfirmPassword);
     };
 
-    const toggleShowPassword = () => {
-        setShowPassword(prevShowPassword => !prevShowPassword);
+    const toggleShowPassword = (): void => {
+        setShowPassword((prevShowPassword) => !prevShowPassword);
     };
 
-    const toggleConfirmPasswordField = () => {
+    const toggleConfirmPasswordField = (): void => {
         setShowConfirmPasswordField(true);
     };
 
@@ -40,12 +40,16 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder, onCha
                 {label}
                 <div>
                     <input
-                        type={showPassword ? "text" : "password"}
+                        type={showPassword ? 'text' : 'password'}
                         value={password}
                         onChange={handlePasswordChange}
                         placeholder={placeholder}
                     />
-                    <button type="button" onClick={toggleShowPassword}>
+                    <button
+                        type="button"
+                        onClick={toggleShowPassword}
+                        aria-label={showPassword ? 'Hide password' : 'Show password'}
+                    >
                         {showPassword ? 'Hide' : 'Show'}
                     </button>
                 </div>
@@ -55,7 +59,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder, onCha
                     Confirm {label}
                     <div>
                         <input
-                            type={showPassword ? "text" : "password"}
+                            type={showPassword ? 'text' : 'password'}
                             value={confirmPassword}
                             onChange={handleConfirmPasswordChange}
                             placeholder={`Confirm ${placeholder}`}
@@ -68,7 +72,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder, onCha
             )}
             {!showConfirmPasswordField && (
                 <button type="button" onClick={toggleConfirmPasswordField}>
-                    Sign UP
+                    Sign Up
                 </button>
             )}
         </div>
