@@ -12,11 +12,12 @@ const UserLoginComponent: React.FC<{}> = () => {
   return (
     <div>
      <input type = "text" value={username} 
-          onChange ={handleInputChange} 
-          placeholder="Username"/>
-        <p> {username}</p>
-    </div>
+          onChange ={handleInputChange}  
+          placeholder="Username"/>   
+        <p> {username}</p>       
+    </div>        // TODO remove paragraphs (dev tool)
   );
 };
 
 export default UserLoginComponent;
+
