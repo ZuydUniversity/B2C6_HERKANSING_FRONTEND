@@ -13,9 +13,8 @@ const UserLoginComponent: React.FC<{}> = () => {
     <div>
      <input type = "text" value={username} 
           onChange ={handleInputChange}  
-          placeholder="Username"/>   
-        <p> {username}</p>       
-    </div>        // TODO remove paragraphs (dev tool)
+          placeholder="Username"/>       
+    </div>        
   );
 };
 
