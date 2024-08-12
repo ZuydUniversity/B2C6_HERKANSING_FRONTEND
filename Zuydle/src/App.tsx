@@ -3,6 +3,7 @@ import "./App.css";
 import "./components/Gold.tsx";
 import Gold from "./components/Gold.tsx";
 
+
 function App() {
   return (
     <>
