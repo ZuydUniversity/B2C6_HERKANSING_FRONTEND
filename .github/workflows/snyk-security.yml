@@ -40,8 +40,3 @@ jobs:
 
       - name: Snyk Container monitor
         run: snyk container monitor your/image-to-test --file=Dockerfile --severity-threshold=high || true
-
-      - name: Upload results to GitHub Code Scanning
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: snyk-code.sarif
