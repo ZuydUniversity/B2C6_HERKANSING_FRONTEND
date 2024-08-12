@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useGoldContext } from '../context/GoldContext';
+import { useGoldContext } from "../context/GoldContext";
 
 interface UsePickaxeUpgradeReturn {
   multiplier: number;
@@ -13,17 +13,17 @@ const usePickaxeUpgrade = (): UsePickaxeUpgradeReturn => {
   const [upgradeCount, setUpgradeCount] = useState(0);
 
   function calculateUpgradeCost() {
-    return Math.pow(upgradeCount + 1, 2) * 50; // Aangepaste kostenformule
+    return Math.pow(upgradeCount + 1, 2) * 50;
   }
 
   function upgradePickaxe(gold: number, setGold: (gold: number) => void) {
     const cost = calculateUpgradeCost();
     if (gold >= cost) {
       setGold(gold - cost);
-      setMultiplier(prevMultiplier => prevMultiplier * 2); // Verdubbel de multiplier
-      setUpgradeCount(prevCount => prevCount + 1);
+      setMultiplier((prevMultiplier) => prevMultiplier * 2);
+      setUpgradeCount((prevCount) => prevCount + 1);
     } else {
-      alert('Niet genoeg goud voor upgrade!');
+      alert("Niet genoeg goud voor upgrade!");
     }
   }
 

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, ReactNode } from "react";
 
 interface GoldContextType {
   gold: number;
@@ -9,16 +9,20 @@ interface GoldContextType {
 
 const GoldContext = createContext<GoldContextType | undefined>(undefined);
 
-export const GoldProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const GoldProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [gold, setGold] = useState(1);
   const [multiplier, setMultiplier] = useState(1);
 
   const raiseGold = (amount: number) => {
-    setGold(prevGold => prevGold + amount);
+    setGold((prevGold) => prevGold + amount);
   };
 
   return (
-    <GoldContext.Provider value={{ gold, raiseGold, multiplier, setMultiplier }}>
+    <GoldContext.Provider
+      value={{ gold, raiseGold, multiplier, setMultiplier }}
+    >
       {children}
     </GoldContext.Provider>
   );
@@ -27,7 +31,7 @@ export const GoldProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 export const useGoldContext = () => {
   const context = useContext(GoldContext);
   if (context === undefined) {
-    throw new Error('useGoldContext must be used within a GoldProvider');
+    throw new Error("useGoldContext must be used within a GoldProvider");
   }
   return context;
 };

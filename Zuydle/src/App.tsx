@@ -1,9 +1,9 @@
-import React from 'react';
-import githubLogo from '/githubLogo.svg';
-import './App.css';
-import Gold from './components/Gold';
-import PickaxeUpgrade from './components/PickaxeUpgrade';
-import { GoldProvider } from './context/GoldContext';
+import React from "react";
+import githubLogo from "/githubLogo.svg";
+import "./App.css";
+import Gold from "./components/Gold";
+import PickaxeUpgrade from "./components/PickaxeUpgrade";
+import { GoldProvider } from "./context/GoldContext";
 
 function App() {
   return (

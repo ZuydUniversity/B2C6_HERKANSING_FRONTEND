@@ -1,5 +1,5 @@
-import React from 'react';
-import { useGoldContext } from '../context/GoldContext';
+import React from "react";
+import { useGoldContext } from "../context/GoldContext";
 
 function Gold() {
   const { gold, raiseGold, multiplier } = useGoldContext();

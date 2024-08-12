@@ -9,13 +9,13 @@ const useGold = ({ savedGold = 1 }: { savedGold?: number }): UseGoldReturn => {
   const [gold, setGold] = useState(savedGold);
 
   const raiseGold = (amount: number) => {
-    setGold(prevGold => prevGold + amount);
+    setGold((prevGold) => prevGold + amount);
   };
 
   return {
     gold,
-    raiseGold
+    raiseGold,
   };
-}
+};
 
 export default useGold;
