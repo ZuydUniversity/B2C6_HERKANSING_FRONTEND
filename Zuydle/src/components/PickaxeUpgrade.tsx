@@ -1,13 +1,15 @@
-import usePickaxeUpgrade from '../hooks/usePickaxeUpgrade';
+import React from 'react';
 
 interface PickaxeUpgradeProps {
   gold: number;
   setGold: (gold: number) => void;
+  upgradePickaxe: (gold: number, setGold: (gold: number) => void) => void;
+  calculateUpgradeCost: () => number;
+  multiplier: number;
+  upgradeCount: number;
 }
 
-function PickaxeUpgrade({ gold, setGold }: PickaxeUpgradeProps) {
-  const { multiplier, upgradeCount, upgradePickaxe, calculateUpgradeCost } = usePickaxeUpgrade();
-
+function PickaxeUpgrade({ gold, setGold, upgradePickaxe, calculateUpgradeCost, multiplier, upgradeCount }: PickaxeUpgradeProps) {
   const cost = calculateUpgradeCost();
 
   return (

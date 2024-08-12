@@ -8,18 +8,18 @@ interface UsePickaxeUpgradeReturn {
 }
 
 const usePickaxeUpgrade = (): UsePickaxeUpgradeReturn => {
-  const [multiplier, setMultiplier] = useState(1);
+  const [multiplier, setMultiplier] = useState(1); // Begin met multiplier 1
   const [upgradeCount, setUpgradeCount] = useState(0);
 
   function calculateUpgradeCost() {
-    return Math.pow(upgradeCount + 1, 2) * 10;
+    return Math.pow(upgradeCount + 1, 2) * 50; // Verhoog de kosten exponentieel
   }
 
   function upgradePickaxe(gold: number, setGold: (gold: number) => void) {
     const cost = calculateUpgradeCost();
     if (gold >= cost) {
       setGold(gold - cost);
-      setMultiplier(multiplier * 2);
+      setMultiplier(multiplier * 2); // Verdubbel de multiplier bij elke upgrade
       setUpgradeCount(upgradeCount + 1);
     } else {
       alert('Niet genoeg goud voor upgrade!');
@@ -30,8 +30,8 @@ const usePickaxeUpgrade = (): UsePickaxeUpgradeReturn => {
     multiplier,
     upgradeCount,
     upgradePickaxe,
-    calculateUpgradeCost
+    calculateUpgradeCost,
   };
-}
+};
 
 export default usePickaxeUpgrade;

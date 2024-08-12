@@ -1,22 +1,21 @@
 import { useState } from "react";
 
 interface UseGoldReturn {
-    gold: number;
-    raiseGold: (amount: number) => void;
+  gold: number;
+  raiseGold: (amount: number) => void;
+}
+
+const useGold = ({ savedGold = 1 }): UseGoldReturn => {
+  const [gold, setGold] = useState(savedGold);
+
+  function raiseGold(amount: number) {
+    setGold((gold) => gold + amount);
   }
 
-const useGold = ({savedGold = 1}): UseGoldReturn => {
-    const [gold, setGold] = useState(savedGold);
-
-    function raiseGold(strength: number)
-    {
-        setGold((gold) => gold + strength)
-    }
-
-    return {
+  return {
     gold,
-    raiseGold
-    }
+    raiseGold,
+  };
 }
 
 export default useGold;

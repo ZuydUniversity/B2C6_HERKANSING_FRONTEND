@@ -1,14 +1,16 @@
-import useGold from "../hooks/useGold";
+import React from 'react';
 
-function Gold() {
-  const {gold, raiseGold} = useGold({savedGold: 1})
+interface GoldProps {
+  gold: number;
+  raiseGold: (amount: number) => void;
+  multiplier: number;
+}
 
+function Gold({ gold, raiseGold, multiplier }: GoldProps) {
   return (
-    <>
-      <div className="card">
-        <button onClick={() => raiseGold(5)}>Gold {gold}</button>
-      </div>
-    </>
+    <div className="card">
+      <button onClick={() => raiseGold(1 * multiplier)}>Gold {gold}</button>
+    </div>
   );
 }
 
