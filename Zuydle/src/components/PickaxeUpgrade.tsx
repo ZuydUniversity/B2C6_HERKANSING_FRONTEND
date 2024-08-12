@@ -1,29 +1,17 @@
-import React from "react";
+import React from 'react';
+import { useGoldContext } from '../context/GoldContext';
+import usePickaxeUpgrade from '../hooks/usePickaxeUpgrade';
 
-interface PickaxeUpgradeProps {
-  gold: number;
-  setGold: (gold: number) => void;
-  upgradePickaxe: (gold: number, setGold: (gold: number) => void) => void;
-  calculateUpgradeCost: () => number;
-  multiplier: number;
-  upgradeCount: number;
-}
+function PickaxeUpgrade() {
+  const { gold, raiseGold } = useGoldContext();
+  const { multiplier, upgradeCount, upgradePickaxe, calculateUpgradeCost } = usePickaxeUpgrade();
 
-function PickaxeUpgrade({
-  gold,
-  setGold,
-  upgradePickaxe,
-  calculateUpgradeCost,
-  multiplier,
-  upgradeCount,
-}: PickaxeUpgradeProps) {
   const cost = calculateUpgradeCost();
 
   return (
     <div className="card">
-      <button onClick={() => upgradePickaxe(gold, setGold)}>
-        Upgrade Pickaxe (Cost: {cost} Gold) - Current Multiplier: {multiplier} -
-        Upgrades: {upgradeCount}
+      <button onClick={() => upgradePickaxe(gold, raiseGold)}>
+        Upgrade Pickaxe (Cost: {cost} Gold) - Current Multiplier: {multiplier} - Upgrades: {upgradeCount}
       </button>
     </div>
   );

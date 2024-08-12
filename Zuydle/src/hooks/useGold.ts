@@ -5,17 +5,17 @@ interface UseGoldReturn {
   raiseGold: (amount: number) => void;
 }
 
-const useGold = ({ savedGold = 1 }): UseGoldReturn => {
+const useGold = ({ savedGold = 1 }: { savedGold?: number }): UseGoldReturn => {
   const [gold, setGold] = useState(savedGold);
 
-  function raiseGold(amount: number) {
-    setGold((gold) => gold + amount);
-  }
+  const raiseGold = (amount: number) => {
+    setGold(prevGold => prevGold + amount);
+  };
 
   return {
     gold,
-    raiseGold,
+    raiseGold
   };
-};
+}
 
 export default useGold;
