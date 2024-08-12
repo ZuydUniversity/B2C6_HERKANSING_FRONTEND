@@ -5,28 +5,28 @@ const globals = require('globals');
 
 module.exports = [
   {
-    files: ['Zuydle/src**/*.{js,jsx,mjs,cjs,ts,tsx}'], // Target files
+    files: ['Zuydle/src**/*.{js,jsx,mjs,cjs,ts,tsx}'],
     plugins: {
-      react, // Register the react plugin
-      '@typescript-eslint': ts, // Register the TypeScript plugin
+      react,
+      '@typescript-eslint': ts,
     },
     languageOptions: {
         parser: tsParser,
       parserOptions: {
         ecmaFeatures: {
-          jsx: true, // Enable JSX
+          jsx: true,
         },
       },
       globals: {
-        ...globals.browser, // Include browser globals like window, document, etc.
+        ...globals.browser,
       },
     },
     
     rules: {
-      'react/react-in-jsx-scope': 'off', // Disable the rule since React 17+ does not require React in scope
-      'react/jsx-uses-react': 'off', // Disable rule for React 17+ JSX Transform
-      'react/jsx-uses-vars': 'error', // Prevent variables used in JSX from being marked as unused
-      '@typescript-eslint/no-unused-vars': 'error', // Prevent unused variables in TypeScript
+      'react/react-in-jsx-scope': 'off', 
+      'react/jsx-uses-react': 'off', 
+      'react/jsx-uses-vars': 'error', 
+      '@typescript-eslint/no-unused-vars': 'error', 
     },
   },
 ];
