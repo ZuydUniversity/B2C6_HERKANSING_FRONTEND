@@ -4,7 +4,7 @@ const globals = require('globals');
 
 module.exports = [
   {
-    files: ['**/*.{js,jsx,mjs,cjs,ts,tsx}'], // Target files
+    files: ['Zuydle/src**/*.{js,jsx,mjs,cjs,ts,tsx}'], // Target files
     plugins: {
       react, // Register the react plugin
       '@typescript-eslint': ts, // Register the TypeScript plugin
