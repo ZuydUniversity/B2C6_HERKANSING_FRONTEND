@@ -18,18 +18,19 @@
   filter: drop-shadow(0 0 2em #c150ddaa);
 }
 
-@keyframes logo-spin {
+@keyframes logo-bob {
   from {
-    transform: rotate(0deg);
+    transform: skewY(-2);
   }
   to {
-    transform: rotate(360deg);
+    transform: skewY(2);
+
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+    animation: logo-bob infinite 5s linear;
   }
 }
 
@@ -38,8 +39,4 @@
   background-color: #1a1a1a; /* Achtergrondkleur voor cards */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.read-the-docs {
-  color: #888;
 }
