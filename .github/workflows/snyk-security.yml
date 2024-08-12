@@ -23,9 +23,6 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
-      - name: Update Snyk CLI
-        run: npm install -g snyk
-
       - name: Snyk Code test
         run: snyk code test --sarif > snyk-code.sarif || true
 
