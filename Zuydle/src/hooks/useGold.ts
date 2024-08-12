@@ -16,6 +16,6 @@ const useGold = ({ savedGold = 1 }): UseGoldReturn => {
     gold,
     raiseGold,
   };
-}
+};
 
 export default useGold;

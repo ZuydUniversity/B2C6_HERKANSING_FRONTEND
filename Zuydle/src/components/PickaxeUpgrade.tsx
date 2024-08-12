@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface PickaxeUpgradeProps {
   gold: number;
@@ -9,13 +9,21 @@ interface PickaxeUpgradeProps {
   upgradeCount: number;
 }
 
-function PickaxeUpgrade({ gold, setGold, upgradePickaxe, calculateUpgradeCost, multiplier, upgradeCount }: PickaxeUpgradeProps) {
+function PickaxeUpgrade({
+  gold,
+  setGold,
+  upgradePickaxe,
+  calculateUpgradeCost,
+  multiplier,
+  upgradeCount,
+}: PickaxeUpgradeProps) {
   const cost = calculateUpgradeCost();
 
   return (
     <div className="card">
       <button onClick={() => upgradePickaxe(gold, setGold)}>
-        Upgrade Pickaxe (Cost: {cost} Gold) - Current Multiplier: {multiplier} - Upgrades: {upgradeCount}
+        Upgrade Pickaxe (Cost: {cost} Gold) - Current Multiplier: {multiplier} -
+        Upgrades: {upgradeCount}
       </button>
     </div>
   );

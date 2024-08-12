@@ -22,7 +22,7 @@ const usePickaxeUpgrade = (): UsePickaxeUpgradeReturn => {
       setMultiplier(multiplier * 2);
       setUpgradeCount(upgradeCount + 1);
     } else {
-      alert('Niet genoeg goud voor upgrade!');
+      alert("Niet genoeg goud voor upgrade!");
     }
   }
 
