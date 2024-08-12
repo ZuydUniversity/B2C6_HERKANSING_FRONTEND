@@ -1,17 +1,23 @@
-import { useState } from 'react'
-import './App.css'
-import PasswordInput from './Password'
+import githubLogo from "/githubLogo.svg";
+import "./App.css";
+import "./components/Gold.tsx";
+import Gold from "./components/Gold.tsx";
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>     
-      <div className="app">
-            <PasswordInput label="Password:" placeholder="Enter your password" />
-        </div>
+    <>
+      <div>
+        <a
+          href="https://github.com/ZuydUniversity/B2C6_HERKANSING_FRONTEND/issues"
+          target="_blank"
+        >
+          <img src={githubLogo} className="logo" alt="Github logo" />
+        </a>
+      </div>
+      <Gold></Gold>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
