@@ -11,6 +11,7 @@ module.exports = [
       '@typescript-eslint': ts, // Register the TypeScript plugin
     },
     languageOptions: {
+        parser: tsParser,
       parserOptions: {
         ecmaFeatures: {
           jsx: true, // Enable JSX
