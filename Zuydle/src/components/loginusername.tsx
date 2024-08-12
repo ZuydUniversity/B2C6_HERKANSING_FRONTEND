@@ -1,18 +1,13 @@
 import React, {useState} from "react";
+import useUsername from "../hooks/useUsername";
 
 const UserLoginComponent: React.FC<{}> = () => {
-  const[username, setUsername] = useState('')
-
-  // React input handler that updates the hook
-  const handleInputChange = 
-  (e: React.ChangeEvent<HTMLInputElement>) => {
-      setUsername(e.target.value);
-  };
 
   return (
     <div>
-     <input type = "text" value={username} 
-          onChange ={handleInputChange}  
+     <input 
+          type = "text" 
+          onChange ={e => useUsername(e.target.value)}  
           placeholder="Username"/>       
     </div>        
   );

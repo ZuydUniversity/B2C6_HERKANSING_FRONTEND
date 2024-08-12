@@ -1,7 +1,11 @@
 import githubLogo from "/githubLogo.svg";
 import "./App.css";
 import "./components/Gold.tsx";
-import Gold from "./components/Gold.tsx";
+import "./components/Password.tsx";
+import LoginButton from "./components/loginbutton.tsx";
+import UserLoginComponent from "./components/loginusername.tsx";
+import PasswordInput from "./components/Password.tsx";
+
 
 
 function App() {
@@ -15,7 +19,9 @@ function App() {
           <img src={githubLogo} className="logo" alt="Github logo" />
         </a>
       </div>
-      <Gold></Gold>
+      <UserLoginComponent></UserLoginComponent>
+      <PasswordInput label='pass' placeholder='Password' onChange={(pass: string) => {return}}> </PasswordInput>
+      <LoginButton></LoginButton>
     </>
   );
 }

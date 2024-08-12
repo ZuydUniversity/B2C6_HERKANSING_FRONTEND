@@ -50,7 +50,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder, onCha
                     </button>
                 </div>
             </label>
-            {showConfirmPasswordField && (
+            {/* {showConfirmPasswordField && (
                 <label>
                     Confirm {label}
                     <div>
@@ -70,7 +70,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder, onCha
                 <button type="button" onClick={toggleConfirmPasswordField}>
                     Sign UP
                 </button>
-            )}
+            )} */}
         </div>
     );
 };
