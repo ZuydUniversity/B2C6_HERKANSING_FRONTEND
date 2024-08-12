@@ -1,5 +1,6 @@
 const react = require('eslint-plugin-react');
 const ts = require('@typescript-eslint/eslint-plugin');
+const tsParser = require('@typescript-eslint/parser');
 const globals = require('globals');
 
 module.exports = [
@@ -9,6 +10,11 @@ module.exports = [
       react, // Register the react plugin
       '@typescript-eslint': ts, // Register the TypeScript plugin
     },
+    extends: [
+        'eslint:recommended',
+        'plugin:react/recommended',
+        'plugin:@typescript-eslint/recommended',
+      ],
     languageOptions: {
       parserOptions: {
         ecmaFeatures: {
@@ -19,6 +25,7 @@ module.exports = [
         ...globals.browser, // Include browser globals like window, document, etc.
       },
     },
+    
     rules: {
       'react/react-in-jsx-scope': 'off', // Disable the rule since React 17+ does not require React in scope
       'react/jsx-uses-react': 'off', // Disable rule for React 17+ JSX Transform
