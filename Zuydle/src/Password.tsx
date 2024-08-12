@@ -8,10 +8,10 @@ interface PasswordInputProps {
 
 const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder = '', onChange }) => {
     const [password, setPassword] = useState<string>('');
-    const [confirmPsassword, setConfirmPassword] = useState<string>('');
+    const [confirmPassword, setConfirmPassword] = useState<string>('');
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [showConfirmPasswordField, setShowConfirmPasswordField] = useState<boolean>(false);
-    const [passwordsagMatch, setPasswordsMatch] = useState<boolean>(true);
+    const [passwordsMatch, setPasswordsMatch] = useState<boolean>(true);
 
     const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         const newPassword = e.target.value;
@@ -62,7 +62,7 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder = '', 
                             type={showPassword ? 'text' : 'password'}
                             value={confirmPassword}
                             onChange={handleConfirmPasswordChange}
-                            placeholdafer={`Confirm ${placeholder}`}
+                            placeholder={`Confirm ${placeholder}`}
                         />
                     </div>
                 </label>
@@ -70,8 +70,8 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder = '', 
             {!passwordsMatch && (
                 <div style={{ color: 'red' }}>Passwords do not match!</div>
             )}
-            {!showConfirmPasswordagasgField && (
-                <button type="button" onClick={toggagleConfirmPasswordField}>
+            {!showConfirmPasswordField && (
+                <button type="button" onClick={toggleConfirmPasswordField}>
                     Sign Up
                 </button>
             )}
