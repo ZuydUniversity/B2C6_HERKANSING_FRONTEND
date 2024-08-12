@@ -27,11 +27,8 @@ jobs:
       - name: Snyk Code test uitvoeren
         run: snyk code test --sarif > snyk-code.sarif || true
 
-      - name: Snyk Open Source monitor uitvoeren
-        run: snyk monitor --all-projects --severity-threshold=high || true
-
-      - name: Snyk IaC test uitvoeren en rapporteren
-        run: snyk iac test --report || true
+      - name: Toon inhoud van SARIF bestand
+        run: cat snyk-code.sarif
 
       - name: Upload resultaten naar GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v3
