@@ -9,7 +9,7 @@ interface PasswordInputProps {
 const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder = '', onChange }) => {
     const [password, setPassword] = useState<string>('');
     const [confirmPassword, setConfirmPassword] = useState<string>('');
-    const [showPassword, setShowPassword] = useState<boolean>(false);
+    
     const [showConfirmPasswordField, setShowConfirmPasswordField] = useState<boolean>(false);
     const [passwordsMatch, setPasswordsMatch] = useState<boolean>(true);
 
