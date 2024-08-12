@@ -1,5 +1,4 @@
-import React from 'react';
-import usePickaxeUpgrade from './hooks/usePickaxeUpgrade';
+import usePickaxeUpgrade from '../hooks/usePickaxeUpgrade';
 
 interface PickaxeUpgradeProps {
   gold: number;

@@ -1,7 +1,7 @@
 import githubLogo from "/githubLogo.svg";
 import "./App.css";
-import "./Gold.tsx";
-import Gold from "./Gold.tsx";
+import "./components/Gold.tsx";
+import Gold from "./components/Gold.tsx";
 
 function App() {
   return (
@@ -20,4 +20,3 @@ function App() {
 }
 
 export default App;
-

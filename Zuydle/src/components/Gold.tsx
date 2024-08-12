@@ -1,4 +1,4 @@
-import useGold from "./hooks/useGold";
+import useGold from "../hooks/useGold";
 
 function Gold() {
   const {gold, raiseGold} = useGold({savedGold: 1})
