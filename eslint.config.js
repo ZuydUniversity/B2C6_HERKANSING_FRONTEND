@@ -10,11 +10,6 @@ module.exports = [
       react, // Register the react plugin
       '@typescript-eslint': ts, // Register the TypeScript plugin
     },
-    extends: [
-        'eslint:recommended',
-        'plugin:react/recommended',
-        'plugin:@typescript-eslint/recommended',
-      ],
     languageOptions: {
       parserOptions: {
         ecmaFeatures: {
