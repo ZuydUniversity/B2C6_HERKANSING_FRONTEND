@@ -20,7 +20,7 @@ function App() {
         </a>
       </div>
       <UserLoginComponent></UserLoginComponent>
-      <PasswordInput label='pass' placeholder='Password' onChange={(pass: string) => {return}}> </PasswordInput>
+      <PasswordInput placeholder='Password' onChange={(pass: string) => {return}}> </PasswordInput>
       <LoginButton></LoginButton>
     </>
   );
