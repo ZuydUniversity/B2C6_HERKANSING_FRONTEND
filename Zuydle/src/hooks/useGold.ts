@@ -5,7 +5,7 @@ interface UseGoldReturn {
   raiseGold: (amount: number) => void;
 }
 
-const useGold = ({ savedGold = 1 }: { savedGold?: number }): UseGoldReturn => {
+const useGold = ({ savedGold = 1 }): UseGoldReturn => {
   const [gold, setGold] = useState(savedGold);
 
   const raiseGold = (amount: number) => {
