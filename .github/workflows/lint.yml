@@ -6,6 +6,7 @@ on:
       - main
       - develop
       - setup/eslint
+      - setup/eslint1
   pull_request:
     branches:
       - main
