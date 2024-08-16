@@ -5,6 +5,7 @@ import Gold from "./components/Gold";
 import PickaxeUpgrade from "./components/PickaxeUpgrade";
 import { GoldProvider } from "./context/GoldContext";
 
+
 function App() {
   return (
     <GoldProvider>
