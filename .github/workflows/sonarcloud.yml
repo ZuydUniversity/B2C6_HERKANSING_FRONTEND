@@ -23,8 +23,8 @@ jobs:
         uses: SonarSource/sonarcloud-github-action@v2.2.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: |
-            -Dsonar.projectKey=your_project_key
-            -Dsonar.organization=your_organization_key
-            -Dsonar.verbose=true
+#        with:
+#          args: |
+#            -Dsonar.projectKey=your_project_key
+#            -Dsonar.organization=your_organization_key
+#            -Dsonar.verbose=true
