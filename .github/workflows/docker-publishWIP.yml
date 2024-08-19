@@ -1,0 +1,31 @@
+name: Docker
+
+on:
+  schedule:
+    - cron: '38 0 * * *'
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: trueprovidence/devops
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Deploy
+        run: cd Container-Devops-Zuyd
+              cd Zuydle
+              sudo docker run -d -p 5173:5173 trueprovidence/devops
+
+
+
