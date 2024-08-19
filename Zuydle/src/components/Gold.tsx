@@ -1,14 +1,13 @@
-import useGold from "../hooks/useGold";
+import React from "react";
+import { useGoldContext } from "../context/GoldContext";
 
 function Gold() {
-  const {gold, raiseGold} = useGold({savedGold: 1})
+  const { gold, raiseGold, multiplier } = useGoldContext();
 
   return (
-    <>
-      <div className="card">
-        <button onClick={() => raiseGold(5)}>Gold {gold}</button>
-      </div>
-    </>
+    <div className="card">
+      <button onClick={() => raiseGold(1 * multiplier)}>Gold {gold}</button>
+    </div>
   );
 }
 
