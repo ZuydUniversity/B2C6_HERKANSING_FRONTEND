@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 
-interface PasswordInputProps {
-    label: string;
+const PasswordInput = (props: { //hier heb ik const gebruikt ipv interface, bij interface is het nodig om de props mee te geven in de app.tsx
+    label?: string;
     placeholder?: string;
-    onChange: (password: string) => void;
-}
+    onChange?: (password: string) => void;
+}) => {
+    
+    const {
+        label = "Password",
+        placeholder = "Password",
+        onChange = () => {} //De properties label en placeholder veranderen vandaar wordt onchange gebruikt om de verandering in password in te zien
+    } = props;
 
-const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder, onChange }) => { //De properties label en placeholder veranderen vandaar wordt onchange gebruikt om de verandering in password in te zien
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -14,20 +19,20 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder, onCha
     const [passwordsMatch, setPasswordsMatch] = useState(true);
 
     const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const newPassword = e.target.value; // het getypte password wordt geassignd aan newPassword
+        const newPassword = e.target.value;// het getypte password wordt geassignd aan newPassword
         setPassword(newPassword);
-        onChange(newPassword);
-        setPasswordsMatch(newPassword === confirmPassword); //controleert of het nieuwe wahctwoord overeenkomt met het bevestigingswachtwoord
+        onChange(newPassword); 
+        setPasswordsMatch(newPassword === confirmPassword);//controleert of het nieuwe wahctwoord overeenkomt met het bevestigingswachtwoord
     };
 
     const handleConfirmPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newConfirmPassword = e.target.value;
         setConfirmPassword(newConfirmPassword);
-        setPasswordsMatch(password === newConfirmPassword); //controlleert of het bevestigings wachtwoord overeenkomt met het wachtwoord
+        setPasswordsMatch(password === newConfirmPassword);//controlleert of het bevestigings wachtwoord overeenkomt met het wachtwoord
     };
 
     const toggleShowPassword = () => {
-        setShowPassword(prevShowPassword => !prevShowPassword); //een toggle om het wachtwoord zichtbaar te maken
+        setShowPassword(prevShowPassword => !prevShowPassword);//een toggle om het wachtwoord zichtbaar te maken
     };
 
     const toggleConfirmPasswordField = () => { // de toggle tussen sign up en sign in
@@ -36,20 +41,22 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder, onCha
 
     return (
         <div className="password-input">
-            <label>
-                {label}
-                <div>
-                    <input
-                        type={showPassword ? "text" : "password"} // bepaalt of het password zichtbaar is of dat deze verborgen blijft
-                        value={password}
-                        onChange={handlePasswordChange}
-                        placeholder={placeholder} 
-                    />
-                    <button type="button" onClick={toggleShowPassword}>   
-                        {showPassword ? 'Hide' : 'Show'}
-                    </button>
-                </div>
-            </label>
+            {label && (
+                <label>
+                    {label}
+                    <div>
+                        <input
+                            type={showPassword ? "text" : "password"}// bepaalt of het password zichtbaar is of dat deze verborgen blijft
+                            value={password}
+                            onChange={handlePasswordChange}
+                            placeholder={placeholder}
+                        />
+                        <button type="button" onClick={toggleShowPassword}>
+                            {showPassword ? 'Hide' : 'Show'}
+                        </button>
+                    </div>
+                </label>
+            )}
             {showConfirmPasswordField && (
                 <label>
                     Confirm {label}
@@ -63,13 +70,13 @@ const PasswordInput: React.FC<PasswordInputProps> = ({ label, placeholder, onCha
                     </div>
                 </label>
             )}
-            {!passwordsMatch && (
-                <div style={{ color: 'red' }}>Passwords do not match!</div> // Wanneer passwords niet matchen krijgt de gebruiker hier een melding van
+            {!passwordsMatch && ( // Wanneer passwords niet matchen krijgt de gebruiker hier een melding van
+                <div style={{ color: 'red' }}>Passwords do not match!</div>
             )}
-            {!showConfirmPasswordField && (
+            {!showConfirmPasswordField && ( 
                 <button type="button" onClick={toggleConfirmPasswordField}>
                     Sign UP
-                </button> // dit is de button die toggled tussen sign up en sign in om zo het 2e password veld te laten zien
+                </button>// dit is de button die toggled tussen sign up en sign in om zo het 2e password veld te laten zien
             )}
         </div>
     );

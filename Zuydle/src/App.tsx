@@ -2,6 +2,7 @@ import githubLogo from "/githubLogo.svg";
 import "./App.css";
 import "./components/Gold.tsx";
 import Gold from "./components/Gold.tsx";
+import PasswordInput from "./Password.tsx";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
           <img src={githubLogo} className="logo" alt="Github logo" />
         </a>
       </div>
-      <Gold></Gold>
+      <PasswordInput></PasswordInput>
     </>
   );
 }
