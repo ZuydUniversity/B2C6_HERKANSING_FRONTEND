@@ -5,8 +5,7 @@ import UserLoginComponent from "./loginusername";
 
 function HandleLogin(user: string, pass: string)
 {
-  alert(user)
-  const databaseUsers = fetch('/api/users')
+//   const databaseUsers = fetch('/api/users')
 }
 
 function LoginPage() 
@@ -17,7 +16,7 @@ function LoginPage()
     return(
         <div>
             <UserLoginComponent setUsername={setUsername}></UserLoginComponent>
-            <LoginButton HandleLogin={() => HandleLogin(username, password)}></LoginButton>
+            <LoginButton HandleLogin={HandleLogin} u = {username} p = {password}></LoginButton>
         </div>
     )
 
