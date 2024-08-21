@@ -1,4 +1,3 @@
-import React, {useState} from "react";
 import useUsername from "../hooks/useUsername";
 
 const UserLoginComponent: React.FC<{}> = () => {

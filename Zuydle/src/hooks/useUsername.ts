@@ -6,7 +6,11 @@ interface UseUsernameReturn{
 
 const useUsername = (userInput="default"): UseUsernameReturn => { 
     const [username, setUsername] = useState(userInput)
-    setUsername(userInput)
+    
+    function getUsername()
+    {  
+        setUsername(userInput = username)
+    }
     return {username}
 }
 
