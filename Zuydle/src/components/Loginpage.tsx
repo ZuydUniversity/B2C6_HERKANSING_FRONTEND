@@ -1,11 +1,11 @@
-import React, {useState} from "react";
-import LoginButton from "./loginbutton";
-import UserLoginComponent from "./loginusername";
+import {useState} from "react";
+import LoginButton from "./LoginButton.tsx";
+import UserLoginComponent from "./LoginUsername";
 
 
 function HandleLogin(user: string, pass: string)
 {
-//   const databaseUsers = fetch('/api/users')
+
 }
 
 function LoginPage() 

@@ -3,6 +3,7 @@ import githubLogo from "/githubLogo.svg";
 import "./App.css";
 import { GoldProvider } from "./context/GoldContext";
 import LoginPage from "./components/Loginpage";
+import UserList from "./components/UserList";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         >
           <img src={githubLogo} className="logo" alt="Github logo" />
         </a>
+        <UserList />
       </div>
       <LoginPage></LoginPage>
       </GoldProvider>
