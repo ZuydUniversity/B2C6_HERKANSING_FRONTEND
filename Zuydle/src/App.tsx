@@ -1,11 +1,8 @@
 import React from "react";
 import githubLogo from "/githubLogo.svg";
 import "./App.css";
-import "./components/Gold.tsx";
-import LoginPage from "./components/Loginpage.tsx";
 import { GoldProvider } from "./context/GoldContext";
-
-
+import LoginPage from "./components/Loginpage";
 
 function App() {
   return (
@@ -20,7 +17,7 @@ function App() {
         </a>
       </div>
       <LoginPage></LoginPage>
-    </GoldProvider>
+      </GoldProvider>
   );
 }
 

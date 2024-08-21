@@ -1,12 +1,16 @@
-import useUsername from "../hooks/useUsername";
+// Dit component pakt de user input en geeft het aan de setUsername prop vanuit de parent (LoginPage)
+interface UserFieldProps
+{
+  setUsername: (n:string) => void; 
+}
 
-const UserLoginComponent: React.FC<{}> = () => {
+const UserLoginComponent: React.FC<UserFieldProps> = ({setUsername}) => {
 
   return (
     <div>
      <input 
           type = "text" 
-          onChange ={e => useUsername(e.target.value)}  
+          onChange ={e => setUsername(e.target.value)}  
           placeholder="Username"/>       
     </div>        
   );

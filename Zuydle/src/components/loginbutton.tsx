@@ -1,13 +1,12 @@
 import React from "react";
-import useUsername from "../hooks/useUsername";
 
-
-function HandleLogin()
+// Dit component krijgt HandleLogin via props. Het activeerd wanneer je op de login knop duwt.
+interface LoginButtonProps 
 {
-  const databaseUsers = fetch('/api/users')
+  HandleLogin: () => void
 }
 
-const LoginButton: React.FC<{}> = () => {
+const LoginButton: React.FC<LoginButtonProps> = (HandleLogin) => {
   
   return (
     <div>
