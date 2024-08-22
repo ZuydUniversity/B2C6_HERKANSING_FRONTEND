@@ -1,6 +1,6 @@
 import { useState } from "react";
-import LoginButton from "./LoginButton";
-import UserLoginComponent from "./LoginUsername";
+import LoginButton from "./loginbutton";
+import UserLoginComponent from "./loginusername";
 
 interface LoginPageProps {
     onLoginStatusChange: (isLoggedIn: boolean) => void;
