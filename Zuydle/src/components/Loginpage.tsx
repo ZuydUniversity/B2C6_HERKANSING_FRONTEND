@@ -24,7 +24,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginStatusChange }) => {
                 const result = await response.json();
                 if (result.success) {
                     alert('Login successful!');
-                    // Proceed with further actions like redirecting or showing additional components
+                    onLoginStatusChange(true);
                 } else {
                     alert('Login failed: ' + result.message);
                 }
