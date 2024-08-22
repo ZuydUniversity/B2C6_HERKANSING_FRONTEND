@@ -1,6 +1,6 @@
 import {useState} from "react";
 import LoginButton from "./LoginButton.tsx";
-import UserLoginComponent from "./LoginUsername";
+import UserLoginComponent from "./LoginUsername.tsx";
 
 
 function HandleLogin(user: string, pass: string)
