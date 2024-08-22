@@ -9,7 +9,6 @@ interface LoginButtonProps
 }
 
 const LoginButton: React.FC<LoginButtonProps> = ({HandleLogin, u, p}) => {
-  console.log(HandleLogin)
   return (
     <div>
         <button onClick={() => {HandleLogin(u, p)}}>Log in</button>
