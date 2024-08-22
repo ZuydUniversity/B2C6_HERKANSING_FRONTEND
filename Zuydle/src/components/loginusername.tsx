@@ -1,21 +1,18 @@
-import React, {useState} from "react";
+// Dit component pakt de user input en geeft het aan de setUsername prop vanuit de parent (LoginPage)
+interface UserFieldProps
+{
+  setUsername: (n:string) => void; 
+}
 
-const UserLoginComponent: React.FC<{}> = () => {
-  const[username, setUsername] = useState('')
-
-  // React input handler that updates the hook
-  const handleInputChange = 
-  (e: React.ChangeEvent<HTMLInputElement>) => {
-      setUsername(e.target.value);
-  };
+const UserLoginComponent: React.FC<UserFieldProps> = ({setUsername}) => {
 
   return (
     <div>
-     <input type = "text" value={username} 
-          onChange ={handleInputChange}  
-          placeholder="Username"/>   
-        <p> {username}</p>       
-    </div>        // TODO remove paragraphs (dev tool)
+     <input 
+          type = "text" 
+          onChange ={e => setUsername(e.target.value)}  
+          placeholder="Username"/>       
+    </div>        
   );
 };
 

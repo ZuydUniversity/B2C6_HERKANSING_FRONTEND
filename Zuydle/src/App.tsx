@@ -2,11 +2,8 @@
 import React from "react";
 import githubLogo from "/githubLogo.svg";
 import "./App.css";
-import PasswordInput from "./Password.tsx";
-import Gold from "./components/Gold";
-import PickaxeUpgrade from "./components/PickaxeUpgrade";
 import { GoldProvider } from "./context/GoldContext";
-
+import AuthProvider from "./components/Authenticator";
 
 function App() {
   return (
@@ -20,10 +17,8 @@ function App() {
           <img src={githubLogo} className="logo" alt="Github logo" />
         </a>
       </div>
-      <PasswordInput></PasswordInput>
-      <Gold />
-      <PickaxeUpgrade />
-    </GoldProvider>
+      <AuthProvider />
+      </GoldProvider>
   );
 }
 
