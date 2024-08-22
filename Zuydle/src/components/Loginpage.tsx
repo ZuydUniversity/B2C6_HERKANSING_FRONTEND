@@ -12,12 +12,24 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginStatusChange }) => {
 
     async function HandleLogin(user: string, pass: string) {
         try {
-            const response = await fetch(`http://localhost:5000/api/users?username=${encodeURIComponent(user)}`);
-            
+            const response = await fetch('http://localhost:5000/api/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ username: user, password: pass }),
+            });
+    
             if (response.status === 200) {
-                alert('Username exists! (You can proceed with password check)');
-            } else if (response.status === 404) {
-                alert('Username does not exist.');
+                const result = await response.json();
+                if (result.success) {
+                    alert('Login successful!');
+                    // Proceed with further actions like redirecting or showing additional components
+                } else {
+                    alert('Login failed: ' + result.message);
+                }
+            } else if (response.status === 401) {
+                alert('Invalid username or password.');
             } else {
                 throw new Error('Network response was not ok');
             }
@@ -29,6 +41,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginStatusChange }) => {
             }
         }
     }
+    
 
     return (
         <div>
