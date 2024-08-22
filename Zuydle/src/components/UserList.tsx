@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 
+interface User {
+    id: number;
+    username: string;
+}
+
 function UserList() {   
-    const [users, setUsers] = useState([]); 
+    const [users, setUsers] = useState<User[]>([]); 
  
     useEffect(() => { 
         fetch('http://localhost:5000/api/users') 
@@ -11,8 +16,8 @@ function UserList() {
 
     return (
         <ul>
-            {users.map((users, index) => (    
-                <li key={index}>{users}</li> 
+            {users.map((user, index) => (    
+                <li key={index}>{user.username}</li> 
             ))}
         </ul>
     );
