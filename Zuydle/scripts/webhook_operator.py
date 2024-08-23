@@ -9,9 +9,27 @@ def handle_webhook():
     branch = data['ref'].split('/')[-1]
 
     if branch == 'main':
+        subprocess.run(['cd', 'Container-Devops-Zuyd'], 
+                       check=True)
+        subprocess.run(['cd', 'B2C6_HERKANSING_FRONTEND'], 
+                       check=True)
+        
+        subprocess.run(['git', 'remote', 'set-url', 'origin', 'https://github.com/ZuydUniversity/B2C6_HERKANSING_FRONTEND.git'],
+                       check=True)
+        subprocess.run(['git', 'fetch', 'origin'], 
+                       check=True)
+        subprocess.run(['git', 'checkout', 'main'], 
+                       check=True)
+        subprocess.run(['git', 'pull', 'origin', 'main'], 
+                       check=True)
+
+        subprocess.run(['cd', 'Zuydle'], 
+                       check=True)
+
         subprocess.run(['sudo', 'docker', 'stop', '$(sudo', 'docker', 'ps', '-a', '-q'],
                         check=True)
-
+        subprocess.run(['sudo', 'docker', 'build', '-t', 'trueprovidence/devops', '.'],
+                        check=True)
         subprocess.run(['sudo', 'docker', 'run', '-d', '-p', '5173:5173', 'trueprovidence/devops'],
                         check=True)
         
